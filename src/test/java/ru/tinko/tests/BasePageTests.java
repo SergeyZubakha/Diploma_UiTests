@@ -6,8 +6,7 @@ import ru.tinko.pages.MainPage;
 import static io.qameta.allure.Allure.addStreamAttachmentAsync;
 import static io.qameta.allure.Allure.step;
 
-public class BasePageTests {
-    MainPage  mainPage = new MainPage();
+public class BasePageTests extends TestBase {
     @Test
     void headerTest(){
 
@@ -24,10 +23,34 @@ public class BasePageTests {
         });
     }
     @Test
-    void iconTest(){
-        mainPage.openMainPage()
-                .clickHowToBuy()
-                .clickLogoIcon()
-                .checkNavigationList();
+    void iconTest() {
+        step("Открытие главной страницы", () -> {
+            mainPage.openMainPage();
+        });
+        step("Переход на страницу /howtobuy", () -> {
+            mainPage.clickHowToBuy();
+        });
+        step("Клик на иконку логотипа", () -> {
+            mainPage.clickLogoIcon();
+        });
+        step("Проверка перехода на главную, с помощью провеки основных элементов главной", () -> {
+            mainPage.checkNavigationList();
+        });
     }
-}
+        @Test
+        void footerTest() {
+            step("Проверка отображения блоков Компания, Наши предложения, Сервис", () -> {
+                mainPage.openMainPage()
+                        .checkCompanyBloc()
+                        .checkOurOffersBloc()
+                        .checkServiceBloc();
+            });
+            step("Проверка наличия ссылок в блоках Компания, Наши предложения, Сервис", () -> {
+                mainPage.checkHrefInCompanyBloc()
+                        .checkHrefInOurOffersBloc()
+                        .checkHrefInServiceBloc();
+            });
+            }
+        }
+
+

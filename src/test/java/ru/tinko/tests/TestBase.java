@@ -11,6 +11,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.tinko.helpers.Attach;
 import ru.tinko.config.WebConfiguration;
+import ru.tinko.pages.MainPage;
+
 import java.util.Map;
 
 import static com.codeborne.selenide.Configuration.*;
@@ -18,6 +20,9 @@ import static com.codeborne.selenide.Configuration.remote;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class TestBase {
+    String userName = "spamovnic@yandex.ru";
+    String password = "AutoTinkoTD";
+    MainPage mainPage = new MainPage();
     //RegistrationPage registrationPage = new RegistrationPage();
     Faker faker = new Faker();
     static WebConfiguration config = ConfigFactory.create(WebConfiguration.class, System.getProperties());

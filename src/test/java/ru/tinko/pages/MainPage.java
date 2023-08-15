@@ -4,8 +4,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selectors.byTagAndText;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.*;
 
 public class MainPage {
@@ -21,7 +21,25 @@ public class MainPage {
             knowledgeUpdateCenter = $(".main-top__navigation-item-inner a[href*=knowledge]"),
             scheduleAndPrograms = $(".main-top__navigation-item-inner a[href*='http://community.tinko.ru/news/details/id/']"),
             salesRating = $(".main-top__navigation-item-inner a[href*=rating]"),
-            journal = $(".main-top__navigation-item-inner a[href*=journal]");
+            journal = $(".main-top__navigation-item-inner a[href*=journal]"),
+            company = $x("//p[contains(@class, 'footer-menu__title') and text() = 'Компания']"),
+            partnerCertificates = $(".footer-menu__list a[href*=partners]"),
+            vacancies = $(".footer-menu__list a[href*=vacancies]"),
+            companyAddress = $(".footer-menu__list a[href*=contacts]"),
+            ourOffers = $x("//p[contains(@class, 'footer-menu__title') and text() = 'Наши предложения']"),
+            brands = $(".footer-menu__list a[href*=brands]"),
+            functional = $(".footer-menu__list a[href*=functional]"),
+            service = $x("//p[contains(@class, 'footer-menu__title') and text() = 'Сервис']"),
+            repair = $(".footer-menu__list a[href*=repair]"),
+            support = $(".footer-menu__list a[href*=support]"),
+            help = $(".footer-menu__list a[href*=help]"),
+            loginIcon = $("#personal-menu"),
+            userLoginInput = $("[name=USER_LOGIN]"),
+            userPasswordInput = $("[name=USER_PASSWORD]"),
+            loginButton = $("#login_auth_submit"),
+            personalTitle = $(".personal-title");
+
+
 
 
     public MainPage openMainPage() {
@@ -62,8 +80,6 @@ public class MainPage {
         scheduleAndPrograms.shouldHave(text("Расписание и программы вебинаров"));
         salesRating.shouldHave(text("Рейтинг продаж «ТД ТИНКО»"));
         journal.shouldHave(text("Журнал «Грани безопасности»"));
-
-
         return this;
     }
     public MainPage clickHowToBuy(){
@@ -72,6 +88,51 @@ public class MainPage {
     }
     public MainPage clickLogoIcon(){
         logoIcon.click();
+        return this;
+    }
+
+    public MainPage checkCompanyBloc(){
+        company.shouldBe(visible);
+        return this;
+    }
+    public MainPage checkHrefInCompanyBloc(){
+        partnerCertificates.shouldHave(text("Партнерские сертификаты"));
+        vacancies.shouldHave(text("Вакансии"));
+        companyAddress.shouldHave(text("Адрес офиса"));
+        return this;
+    }
+    public MainPage checkOurOffersBloc(){
+        ourOffers.shouldBe(visible);
+        return this;
+    }
+    public MainPage checkHrefInOurOffersBloc(){
+        brands.shouldHave(text("Бренды"));
+        functional.shouldHave(text("Функциональные группы"));
+        return this;
+    }
+    public MainPage checkServiceBloc(){
+        service.shouldBe(visible);
+        return this;
+    }
+    public MainPage checkHrefInServiceBloc(){
+        repair.shouldHave(text("Гарантийный ремонт"));
+        support.shouldHave(text("Техническая поддержка"));
+        help.shouldHave(text("Помощь по сайту"));
+        return this;
+    }
+    public MainPage loginUser(String login, String password){
+        loginIcon.click();
+        userLoginInput.setValue(login);
+        userPasswordInput.setValue(password);
+        return this;
+    }
+    public MainPage clickLogin(){
+        loginButton.click();
+        return this;
+    }
+    public MainPage checkTitleAfterSuccessfulLogin(){
+        loginIcon.click();
+        personalTitle.shouldHave(text("Тест Тестович"));
         return this;
     }
 }
