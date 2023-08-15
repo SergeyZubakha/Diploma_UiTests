@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byTagAndText;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.*;
 
@@ -37,9 +38,22 @@ public class MainPage {
             userLoginInput = $("[name=USER_LOGIN]"),
             userPasswordInput = $("[name=USER_PASSWORD]"),
             loginButton = $("#login_auth_submit"),
-            personalTitle = $(".personal-title");
-
-
+            personalTitle = $(".personal-title"),
+            companyInHeader = $(".order-1"),
+            hrefCompanyInHeader = $(".order-1 a[href*=company]"),
+            news = $(".order-2"),
+            hrefNews = $(".order-2 a[href*=news]"),
+            price = $(".menu-dropdown-item a[href*=pricelist]"),
+            supportInHeader = $(".order-6"),
+            hrefSupportInHeader = $(".order-6 a[href*=support]"),
+            forum = $(".order-7"),
+            hrefForum = $(".order-7 a[href*='https://community.tinko.ru/']"),
+            authorizedUserIcon = $(".authorized"),
+            errorMessage = $("#auth-error"),
+            passwordIsEmptyMessage = $("#USER_PASSWORD-error"),
+            userLoginError = $("#USER_LOGIN-error"),
+            //myProfiles =  $(byText("Мои профили"));
+            myProfiles =  $("#headerPersonalAuth").find(byText("Мои профили"));
 
 
     public MainPage openMainPage() {
@@ -48,6 +62,32 @@ public class MainPage {
     }
     public MainPage checkLogoImg() {
         logoIcon.should(be(visible));
+        return this;
+    }
+    public MainPage checkCompany() {
+        companyInHeader.shouldHave(text("Компания"));
+        hrefCompanyInHeader.shouldBe(visible);
+        return this;
+    }
+    public MainPage checkNews() {
+        news.shouldHave(text("Новости"));
+        hrefNews.shouldBe(visible);
+        return this;
+    }
+    public MainPage checkPriceList() {
+        price.shouldBe(visible);
+        price.shouldHave(text("Прайс-лист"));
+        return this;
+    }
+    public MainPage checkSupport() {
+        supportInHeader.shouldHave(text("Техническая поддержка"));
+        hrefSupportInHeader.shouldBe(visible);
+        return this;
+    }
+
+    public MainPage checkForum() {
+        forum.shouldHave(text("Форум"));
+        hrefForum.shouldBe(visible);
         return this;
     }
     public MainPage checkHowToBuy() {
@@ -121,6 +161,7 @@ public class MainPage {
         return this;
     }
     public MainPage loginUser(String login, String password){
+        loginIcon.shouldBe(visible);
         loginIcon.click();
         userLoginInput.setValue(login);
         userPasswordInput.setValue(password);
@@ -131,8 +172,36 @@ public class MainPage {
         return this;
     }
     public MainPage checkTitleAfterSuccessfulLogin(){
+        authorizedUserIcon.shouldBe(visible);
         loginIcon.click();
         personalTitle.shouldHave(text("Тест Тестович"));
+        return this;
+    }
+    public MainPage checkErrorMessage(){
+        errorMessage.shouldHave(text("Указан неверный e-mail или пароль."));
+        return this;
+    }
+    public MainPage loginUserWithoutPass(String login) {
+        loginIcon.click();
+        userLoginInput.setValue(login);
+        return this;
+    }
+    public MainPage checkPasswordIsEmptyMessage(){
+        passwordIsEmptyMessage.shouldHave(text("Пароль пуст"));
+        return this;
+    }
+    public MainPage loginUserWithoutLoginAndPass() {
+        loginIcon.click();
+        return this;
+    }
+    public MainPage checkErrorMessages(){
+        userLoginError.shouldHave(text("Это поле обязательно для заполнения"));
+        passwordIsEmptyMessage.shouldHave(text("Пароль пуст"));
+        return this;
+    }
+    public MainPage clickMyProfiles(){
+        myProfiles.shouldBe(visible);
+        myProfiles.click();
         return this;
     }
 }

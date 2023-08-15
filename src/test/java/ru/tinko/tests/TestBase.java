@@ -22,6 +22,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class TestBase {
     String userName = "spamovnic@yandex.ru";
     String password = "AutoTinkoTD";
+
     MainPage mainPage = new MainPage();
     //RegistrationPage registrationPage = new RegistrationPage();
     Faker faker = new Faker();
@@ -34,7 +35,7 @@ public class TestBase {
         //Configuration.screenshots = false;
         //Configuration.savePageSource = false;
         //Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub"; //для запуска тестов удаленно
-//        Configuration.pageLoadStrategy = "eager";
+        Configuration.pageLoadStrategy = "eager";
 //
         Configuration.remote = System.getProperty("selenoidUrl"); //для запуска тестов удаленно
         Configuration.baseUrl = System.getProperty("baseUrl", "https://www.tinko.ru");

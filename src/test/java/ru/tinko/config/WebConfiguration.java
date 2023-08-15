@@ -22,7 +22,7 @@ public interface WebConfiguration extends Config {
     String baseUrl();
 
     @Key("isRemote")
-    @DefaultValue("true")
+    @DefaultValue("false")
     boolean isRemote();
 
     @Key("remoteUrl")
