@@ -31,7 +31,8 @@ public class MainPage {
             repair = $(".footer-menu__list a[href*=repair]"),
             support = $(".footer-menu__list a[href*=support]"),
             help = $(".footer-menu__list a[href*=help]"),
-            loginIcon = $("#personal-menu"),
+            //loginIcon = $("#personal-menu"),
+            loginIcon = $x("//ul[@id='header-ui-elements']//*[@class='header-ui-element__wrap']//*[@class='collapsed']"),
             userLoginInput = $("[name=USER_LOGIN]"),
             userPasswordInput = $("[name=USER_PASSWORD]"),
             loginButton = $("#login_auth_submit"),
@@ -156,7 +157,6 @@ public class MainPage {
     public MainPage loginUser(String login, String password){
         loginIcon.shouldBe(visible);
         loginIcon.click();
-        sleep(300000);
         userLoginInput.shouldBe(visible);
         userLoginInput.setValue(login);
         userPasswordInput.setValue(password);
