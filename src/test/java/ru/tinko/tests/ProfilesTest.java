@@ -2,7 +2,6 @@ package ru.tinko.tests;
 
 import org.junit.jupiter.api.Test;
 import ru.tinko.pages.ProfilePage;
-
 import static io.qameta.allure.Allure.step;
 
 public class ProfilesTest extends TestBase{

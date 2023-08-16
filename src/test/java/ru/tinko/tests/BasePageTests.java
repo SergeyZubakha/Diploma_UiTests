@@ -49,7 +49,7 @@ public class BasePageTests extends TestBase {
                         .checkHrefInOurOffersBloc()
                         .checkHrefInServiceBloc();
             });
-            }
-        }
+    }
+}
 
 

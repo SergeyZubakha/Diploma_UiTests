@@ -1,13 +1,10 @@
 package ru.tinko.pages;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
 
+import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverConditions.*;
 
 public class MainPage {
     private SelenideElement logoIcon = $(".header-above-logo__img"),
@@ -52,9 +49,7 @@ public class MainPage {
             errorMessage = $("#auth-error"),
             passwordIsEmptyMessage = $("#USER_PASSWORD-error"),
             userLoginError = $("#USER_LOGIN-error"),
-            //myProfiles =  $(byText("Мои профили"));
             myProfiles =  $("#headerPersonalAuth").find(byText("Мои профили"));
-
 
     public MainPage openMainPage() {
         open("https://www.tinko.ru");
@@ -84,7 +79,6 @@ public class MainPage {
         hrefSupportInHeader.shouldBe(visible);
         return this;
     }
-
     public MainPage checkForum() {
         forum.shouldHave(text("Форум"));
         hrefForum.shouldBe(visible);
@@ -130,7 +124,6 @@ public class MainPage {
         logoIcon.click();
         return this;
     }
-
     public MainPage checkCompanyBloc(){
         company.shouldBe(visible);
         return this;

@@ -12,9 +12,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.tinko.helpers.Attach;
 import ru.tinko.config.WebConfiguration;
 import ru.tinko.pages.MainPage;
-
 import java.util.Map;
-
 import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Configuration.remote;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -22,21 +20,12 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class TestBase {
     String userName = "spamovnic@yandex.ru";
     String password = "AutoTinkoTD";
-
     MainPage mainPage = new MainPage();
-    //RegistrationPage registrationPage = new RegistrationPage();
     Faker faker = new Faker();
     static WebConfiguration config = ConfigFactory.create(WebConfiguration.class, System.getProperties());
     @BeforeAll
     static void beforeAll() {
-        //Configuration.baseUrl = "https://demoqa.com";
-        //Configuration.browserSize = "1920x1080";
-        //Configuration.holdBrowserOpen = true;
-        //Configuration.screenshots = false;
-        //Configuration.savePageSource = false;
-        //Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub"; //для запуска тестов удаленно
         Configuration.pageLoadStrategy = "eager";
-//
         Configuration.remote = System.getProperty("selenoidUrl"); //для запуска тестов удаленно
         Configuration.baseUrl = System.getProperty("baseUrl", "https://www.tinko.ru");
         Configuration.browser = System.getProperty("browser", "chrome");
@@ -60,7 +49,6 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
     }
-
     @BeforeEach
     void addListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());

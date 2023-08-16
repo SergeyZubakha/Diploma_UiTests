@@ -4,7 +4,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Alert;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -21,11 +20,10 @@ public class ProfilePage {
     deleteNewFile = $(".profiles-list div").$(".profiles-list__item-ui-delete"),
     profileDeletedMessage = $(".errortext");
 
-
-   public ProfilePage checkTitle(){
+    public ProfilePage checkTitle(){
        title.shouldHave(Condition.text("Личный кабинет"));
        return this;
-   }
+    }
     public ProfilePage checkTitleProfiles(){
         titleProfiles.shouldHave(Condition.text("Профили"));
         return this;

@@ -18,7 +18,7 @@ public interface WebConfiguration extends Config {
     String browserSize();
 
     @Key("baseUrl")
-    @DefaultValue("https://demoqa.com")
+    @DefaultValue("https://www.tinko.ru")
     String baseUrl();
 
     @Key("isRemote")
