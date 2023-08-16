@@ -4,17 +4,13 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.tinko.helpers.Attach;
-import ru.tinko.config.WebConfiguration;
 import ru.tinko.pages.MainPage;
 import java.util.Map;
-import static com.codeborne.selenide.Configuration.*;
-import static com.codeborne.selenide.Configuration.remote;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class TestBase {
@@ -22,7 +18,7 @@ public class TestBase {
     String password = "AutoTinkoTD";
     MainPage mainPage = new MainPage();
     Faker faker = new Faker();
-    static WebConfiguration config = ConfigFactory.create(WebConfiguration.class, System.getProperties());
+
     @BeforeAll
     static void beforeAll() {
         Configuration.pageLoadStrategy = "eager";
@@ -31,15 +27,6 @@ public class TestBase {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-
-        baseUrl = config.baseUrl();
-        browser = config.browser();
-        browserVersion = config.browserVersion();
-        pageLoadStrategy = "eager";
-        browserSize = config.browserSize();
-        if (config.isRemote()) {
-            remote = config.remoteUrl();
-        }
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
