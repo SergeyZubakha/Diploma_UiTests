@@ -40,14 +40,12 @@ tasks.withType(JavaCompile).configureEach {
 
 tasks.withType(Test) {
     systemProperties(System.getProperties())
-}
-
-test {
     useJUnitPlatform()
-}
 
-task basic_test(type: Test) {
-    useJUnitPlatform{
-        includeTags("Basic")
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
     }
 }
