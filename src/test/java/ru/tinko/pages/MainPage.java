@@ -156,7 +156,7 @@ public class MainPage {
     public MainPage loginUser(String login, String password){
         loginIcon.shouldBe(visible);
         loginIcon.click();
-        sleep(10000);
+        sleep(300000);
         userLoginInput.shouldBe(visible);
         userLoginInput.setValue(login);
         userPasswordInput.setValue(password);
