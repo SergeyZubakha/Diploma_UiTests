@@ -1,15 +1,22 @@
 package ru.tinko.tests;
 
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.tinko.pages.SearchPage;
 import static io.qameta.allure.Allure.step;
 
+@Epic("Tinko UiTests")
+@Feature("Search_2.0")
 public class SearchLineTest extends TestBase {
     private String product1 = "Молния-12";
     private String product2 = "Маяк-220-С";
     private String invalidProduct = "whereIsMyGoods";
     SearchPage search = new SearchPage();
     @Test
+    @DisplayName("Проверка строки поиска на главной")
+    @Owner("s.zubakha")
+    @Severity(SeverityLevel.CRITICAL)
     void searchLineInMainPageTest(){
         step("Открытие главной страницы", () -> {
             mainPage.openMainPage();
@@ -22,6 +29,9 @@ public class SearchLineTest extends TestBase {
         });
     }
     @Test
+    @DisplayName("Проверка строки поиска на странице search/")
+    @Owner("s.zubakha")
+    @Severity(SeverityLevel.CRITICAL)
     void searchLineInSearchPageTest(){
         step("Открытие страницы search/", () -> {
             search.openSearchPage();
@@ -44,6 +54,9 @@ public class SearchLineTest extends TestBase {
     }
 
     @Test
+    @DisplayName("Отображение всех результатов поиска")
+    @Owner("s.zubakha")
+    @Severity(SeverityLevel.CRITICAL)
     void showAllResultsInSuggestTest(){
         step("Открытие страницы search/", () -> {
             search.openSearchPage();
@@ -65,6 +78,9 @@ public class SearchLineTest extends TestBase {
         });
     }
     @Test
+    @DisplayName("Очистка строки и новый поиск товара")
+    @Owner("s.zubakha")
+    @Severity(SeverityLevel.CRITICAL)
     void searchGoodsAfterClearingTest(){
         step("Открытие страницы search/", () -> {
             search.openSearchPage();
@@ -104,6 +120,9 @@ public class SearchLineTest extends TestBase {
         });
     }
     @Test
+    @DisplayName("Поиск несуществующего товара")
+    @Owner("s.zubakha")
+    @Severity(SeverityLevel.CRITICAL)
     void searchInvalidProductTest(){
         step("Открытие страницы search/", () -> {
             search.openSearchPage();
