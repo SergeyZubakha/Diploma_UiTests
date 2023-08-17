@@ -32,7 +32,7 @@ public class MainPage {
             support = $(".footer-menu__list a[href*=support]"),
             help = $(".footer-menu__list a[href*=help]"),
             loginIcon = $("#personal-menu"),
-            //loginIcon = $x("//ul[@id='header-ui-elements']//*[@class='header-ui-element__wrap']//*[@class='collapsed']"),
+            loginIconHover = $x("//ul[@id='header-ui-elements']//*[@class='header-ui-element__wrap']//*[@class='collapsed']"),
             userLoginInput = $("[name=USER_LOGIN]"),
             userPasswordInput = $("[name=USER_PASSWORD]"),
             loginButton = $("#login_auth_submit"),
@@ -155,6 +155,7 @@ public class MainPage {
         return this;
     }
     public MainPage loginUser(String login, String password){
+        loginIconHover.hover();
         loginIcon.shouldBe(visible);
         loginIcon.click();
         userLoginInput.shouldBe(visible);
