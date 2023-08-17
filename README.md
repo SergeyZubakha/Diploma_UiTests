@@ -1,5 +1,4 @@
-# Дипломный проект по автоматизации тестирования сайта <a href="https://https://www.tinko.ru// ">ТинкоТД</a></h1>
-![footer-logo.svg](images/logo/footer-logo.svg)
+# Дипломный проект по автоматизации тестирования сайта <a href="https://https://www.tinko.ru// ">![footer-logo.svg](images/logo/footer-logo.svg)</a></h1>
 ### Технологии и инструменты:
 <p align="center">
 <img src="images/logo/Intelij_IDEA.svg" width="50" height="50"  alt="IDEA"/>
