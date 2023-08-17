@@ -155,7 +155,7 @@ public class MainPage {
         return this;
     }
     public MainPage loginUser(String login, String password){
-        loginIconHover.hover();
+//        loginIconHover.hover();
         loginIcon.shouldBe(visible);
         loginIcon.click();
         userLoginInput.shouldBe(visible);
