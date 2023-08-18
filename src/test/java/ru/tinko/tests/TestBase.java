@@ -21,7 +21,7 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.pageLoadStrategy = "eager";
+        //Configuration.pageLoadStrategy = "eager";
         Configuration.remote = System.getProperty("selenoidUrl"); //для запуска тестов удаленно
         Configuration.baseUrl = System.getProperty("baseUrl", "https://www.tinko.ru");
         Configuration.browser = System.getProperty("browser", "chrome");
