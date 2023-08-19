@@ -47,8 +47,18 @@ public class ProfilesTest extends TestBase{
     @Owner("s.zubakha")
     @Severity(SeverityLevel.NORMAL)
     void deleteNewProfile(){
+        step("Логин юзером", () -> {
+            login.successfulLoginTest();
+        });
+        step("Переход в Мои профили", () -> {
+            mainPage.clickMyProfiles();
+        });
         step("Создание нового профиля", () -> {
-                    createNewProfile();
+            profile.clickCreateNewProfileButton()
+                    .fillProfileName(profileName)
+                    .fillProfileFio(name)
+                    .fillPhone(phone)
+                    .clickSaveButton();
         });
         step("Удаление нового профиля", () -> {
             profile.deleteNewProfile()

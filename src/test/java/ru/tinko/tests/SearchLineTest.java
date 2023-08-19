@@ -52,7 +52,6 @@ public class SearchLineTest extends TestBase {
             search.checkFirstResult(product1);
         });
     }
-
     @Test
     @DisplayName("Отображение всех результатов поиска")
     @Owner("s.zubakha")

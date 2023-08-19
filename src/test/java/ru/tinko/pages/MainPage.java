@@ -1,6 +1,5 @@
 package ru.tinko.pages;
 
-
 import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -155,10 +154,7 @@ public class MainPage {
         return this;
     }
     public MainPage loginUser(String login, String password){
-//        loginIconHover.hover();
-        loginIcon.shouldBe(visible);
         loginIcon.click();
-        userLoginInput.shouldBe(visible);
         userLoginInput.setValue(login);
         userPasswordInput.setValue(password);
         return this;
