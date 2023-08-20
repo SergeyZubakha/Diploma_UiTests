@@ -57,6 +57,7 @@ gradle clean test
 </p>
 
 ### Отчет в Allure report
+<a target="_blank" href="https://jenkins.autotests.cloud/job/DiplomaWork_TinkoTD_UiTests/14/allure/">Allure отчет</a>
 <p >
   
 > Основная страница отчета
