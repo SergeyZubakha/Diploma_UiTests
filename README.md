@@ -98,6 +98,11 @@ gradle clean test
 </p>
 
 ### Пример видео выполнения теста на Selenoid
+<p >
+  
+> Кейс "Очистка строки и новый поиск товара"
+
+</p>
 <p align="center">
   <img title="Selenoid Video" src="images/screens/video-3.gif">
 </p>
