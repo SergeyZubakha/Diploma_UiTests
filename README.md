@@ -52,13 +52,18 @@ gradle clean test
 > `${REMOTE_URL}` - адрес удаленного сервера, на котором будут запускаться тесты.
 
 ### Запуск тестов в Jenkins
-<a target="_blank" href="https://jenkins.autotests.cloud/job/AD_demo_ui_steam/">Сборка в Jenkins</a>
+<a target="_blank" href="https://jenkins.autotests.cloud/job/DiplomaWork_TinkoTD_UiTests/">Сборка в Jenkins</a>
 <p align="center">
 <img title="Jenkins Build" src="images/screens/Jenkins.png">
 </p>
 
 ### Отчет в Allure report
-#### Основная страница отчета
+<a target="_blank" href="https://jenkins.autotests.cloud/job/DiplomaWork_TinkoTD_UiTests/14/allure/">Allure отчет</a>
+<p >
+  
+> Основная страница отчета
+
+</p>
 <p align="center">
 <img title="Jenkins Build" src="images/screens/AllureReport.png">
 </p>
@@ -74,7 +79,7 @@ gradle clean test
 <img title="Jenkins Build" src="images/screens/AllureTestOps.png">
 </p>
 
-#### Тест-кейсы
+#### Тест-кейсы в Allure TestOps
 <p align="center">
 <img title="Jenkins Build" src="images/screens/AllureTestopsTK.png">
 </p>
@@ -85,11 +90,21 @@ gradle clean test
 </p>
 
 ### Уведомления в Telegram с использованием бота
+<p >
+  
+> По завершению тестов поступают уведомления в Telegram.
+
+</p>
 <p align="center">
 <img title="Jenkins Build" src="images/screens/Telegram.png">
 </p>
 
 ### Пример видео выполнения теста на Selenoid
+<p >
+  
+> Кейс "Очистка строки и новый поиск товара"
+
+</p>
 <p align="center">
   <img title="Selenoid Video" src="images/screens/video-3.gif">
 </p>
