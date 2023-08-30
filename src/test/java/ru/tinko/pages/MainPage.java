@@ -1,6 +1,7 @@
 package ru.tinko.pages;
 
 import com.codeborne.selenide.SelenideElement;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -31,7 +32,6 @@ public class MainPage {
             support = $(".footer-menu__list a[href*=support]"),
             help = $(".footer-menu__list a[href*=help]"),
             loginIcon = $("#personal-menu"),
-            loginIconHover = $x("//ul[@id='header-ui-elements']//*[@class='header-ui-element__wrap']//*[@class='collapsed']"),
             userLoginInput = $("[name=USER_LOGIN]"),
             userPasswordInput = $("[name=USER_PASSWORD]"),
             loginButton = $("#login_auth_submit"),
@@ -49,66 +49,73 @@ public class MainPage {
             errorMessage = $("#auth-error"),
             passwordIsEmptyMessage = $("#USER_PASSWORD-error"),
             userLoginError = $("#USER_LOGIN-error"),
-            myProfiles =  $("#headerPersonalAuth").find(byText("Мои профили"));
+            myProfiles = $("#headerPersonalAuth").find(byText("Мои профили"));
 
     public MainPage openMainPage() {
         open("https://www.tinko.ru");
         return this;
     }
+
     public MainPage checkLogoImg() {
         logoIcon.should(be(visible));
         return this;
     }
+
     public MainPage checkCompany() {
         companyInHeader.shouldHave(text("Компания"));
         hrefCompanyInHeader.shouldBe(visible);
         return this;
     }
+
     public MainPage checkNews() {
         news.shouldHave(text("Новости"));
         hrefNews.shouldBe(visible);
         return this;
     }
+
     public MainPage checkPriceList() {
         price.shouldBe(visible);
         price.shouldHave(text("Прайс-лист"));
         return this;
     }
+
     public MainPage checkSupport() {
         supportInHeader.shouldHave(text("Техническая поддержка"));
         hrefSupportInHeader.shouldBe(visible);
         return this;
     }
+
     public MainPage checkForum() {
         forum.shouldHave(text("Форум"));
         hrefForum.shouldBe(visible);
         return this;
     }
+
     public MainPage checkHowToBuy() {
         howToBuy.shouldHave(text("Как купить?"));
         hrefHowToBuy.shouldBe(visible);
         return this;
     }
+
     public MainPage checkDelivery() {
         delivery.shouldHave(text("Доставка"));
         hrefDelivery.shouldBe(visible);
         return this;
     }
+
     public MainPage checkContacts() {
         contacts.shouldHave(text("Контакты"));
         hrefContacts.shouldBe(visible);
         return this;
     }
-    public MainPage checkMore() {
-        more.shouldHave(text("Ещё"));
-        return this;
-    }
+
     public MainPage checkPhonesNumbers() {
         phones.shouldHave(text("8 (495) 708-42-13"));
         phones.shouldHave(text("Звонок бесплатный"));
         phones.shouldHave(text("8 (800) 200-84-65"));
         return this;
     }
+
     public MainPage checkNavigationList() {
         knowledgeUpdateCenter.shouldHave(text("Центр актуализации знаний"));
         scheduleAndPrograms.shouldHave(text("Расписание и программы вебинаров"));
@@ -116,84 +123,107 @@ public class MainPage {
         journal.shouldHave(text("Журнал «Грани безопасности»"));
         return this;
     }
-    public MainPage clickHowToBuy(){
+
+    public MainPage clickHowToBuy() {
         howToBuy.click();
         return this;
     }
-    public MainPage clickLogoIcon(){
+
+    public MainPage clickLogoIcon() {
         logoIcon.click();
         return this;
     }
-    public MainPage checkCompanyBloc(){
+
+    public MainPage checkCompanyBloc() {
         company.shouldBe(visible);
         return this;
     }
-    public MainPage checkHrefInCompanyBloc(){
+
+    public MainPage checkHrefInCompanyBloc() {
         partnerCertificates.shouldHave(text("Партнерские сертификаты"));
         vacancies.shouldHave(text("Вакансии"));
         companyAddress.shouldHave(text("Адрес офиса"));
         return this;
     }
-    public MainPage checkOurOffersBloc(){
+
+    public MainPage checkOurOffersBloc() {
         ourOffers.shouldBe(visible);
         return this;
     }
-    public MainPage checkHrefInOurOffersBloc(){
+
+    public MainPage checkHrefInOurOffersBloc() {
         brands.shouldHave(text("Бренды"));
         functional.shouldHave(text("Функциональные группы"));
         return this;
     }
-    public MainPage checkServiceBloc(){
+
+    public MainPage checkServiceBloc() {
         service.shouldBe(visible);
         return this;
     }
-    public MainPage checkHrefInServiceBloc(){
+
+    public MainPage checkHrefInServiceBloc() {
         repair.shouldHave(text("Гарантийный ремонт"));
         support.shouldHave(text("Техническая поддержка"));
         help.shouldHave(text("Помощь по сайту"));
         return this;
     }
-    public MainPage loginUser(String login, String password){
+
+    public MainPage loginUser(String login, String password) {
         loginIcon.click();
         userLoginInput.setValue(login);
         userPasswordInput.setValue(password);
         return this;
     }
-    public MainPage clickLogin(){
+
+    public MainPage clickLogin() {
         loginButton.click();
         return this;
     }
-    public MainPage checkTitleAfterSuccessfulLogin(){
+
+    public MainPage checkTitleAfterSuccessfulLogin() {
         authorizedUserIcon.shouldBe(visible);
         loginIcon.click();
         personalTitle.shouldHave(text("Тест Тестович"));
         return this;
     }
-    public MainPage checkErrorMessage(){
+
+    public MainPage checkErrorMessage() {
         errorMessage.shouldHave(text("Указан неверный e-mail или пароль."));
         return this;
     }
+
     public MainPage loginUserWithoutPass(String login) {
         loginIcon.click();
         userLoginInput.setValue(login);
         return this;
     }
-    public MainPage checkPasswordIsEmptyMessage(){
+
+    public MainPage checkPasswordIsEmptyMessage() {
         passwordIsEmptyMessage.shouldHave(text("Пароль пуст"));
         return this;
     }
+
     public MainPage loginUserWithoutLoginAndPass() {
         loginIcon.click();
         return this;
     }
-    public MainPage checkErrorMessages(){
+
+    public MainPage checkErrorMessages() {
         userLoginError.shouldHave(text("Это поле обязательно для заполнения"));
         passwordIsEmptyMessage.shouldHave(text("Пароль пуст"));
         return this;
     }
-    public MainPage clickMyProfiles(){
+
+    public MainPage clickMyProfiles() {
         myProfiles.shouldBe(visible);
         myProfiles.click();
+        return this;
+    }
+
+    public MainPage clickLoginIcon() {
+        authorizedUserIcon.shouldBe(visible);
+        loginIcon.click();
         return this;
     }
 }

@@ -10,7 +10,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.tinko.helpers.Attach;
 import ru.tinko.pages.MainPage;
+
 import java.util.Map;
+
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class TestBase {
@@ -35,6 +37,7 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
     }
+
     @BeforeEach
     void addListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());

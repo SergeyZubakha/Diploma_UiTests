@@ -1,4 +1,4 @@
-# Дипломный проект по автоматизации тестирования сайта <a href="https://https://www.tinko.ru// ">ТинкоТД</a></h1>
+# Дипломный проект по автоматизации тестирования сайта <a href="https://www.tinko.ru">ТинкоТД</a></h1>
 ![logo-dark.svg](images/logo/logo-dark.svg)
 ### Технологии и инструменты:
 <p align="center">
@@ -37,8 +37,9 @@ gradle clean test
 ```bash
 gradle clean test
 -DbaseUrl=${BASE_URL}
--DselenoidUrl=${SELENOID_URL}
+-DbrowserVersion=${BROWSER_VERSION}
 -DbrowserSize=${BROWSER_SIZE}
+-DselenoidUrl=${SELENOID_URL}
 
 ```
 
